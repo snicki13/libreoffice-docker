@@ -1,6 +1,11 @@
-FROM ubuntu:22.04
+FROM alpine:latest
+
 MAINTAINER Dominik Kröll <dominik.kroell@mni.thm.de>
 
-RUN apt-get update && apt-get -y install libreoffice
+RUN apk update
+RUN apk --no-cache add msttcorefonts-installer fontconfig && \
+    update-ms-fonts && \
+    fc-cache -f
+RUN apk add libreoffice
 
 ENTRYPOINT ["/bin/bash", "-c"]
