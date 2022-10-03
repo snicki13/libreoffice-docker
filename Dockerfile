@@ -10,6 +10,8 @@ RUN apk --no-cache add msttcorefonts-installer fontconfig && \
     
 RUN apk add bash make libreoffice
 
+RUN apk add inkscape
+
 RUN pip install stapler
 
 ENTRYPOINT ["/bin/bash", "-c"]
